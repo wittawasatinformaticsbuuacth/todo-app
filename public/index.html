@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App - Simple Demo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>📝 Todo App</h1>
+      <p class="subtitle">Simple Full Stack Application with CI/CD</p>
+
+      <!-- Add Todo Section -->
+      <div class="add-todo-section">
+        <div class="input-group">
+          <input type="text" id="todoInput" placeholder="เพิ่ม Todo ใหม่..." autocomplete="off" />
+          <button id="addBtn">➕ Add</button>
+        </div>
+        <div id="error" class="error"></div>
+      </div>
+
+      <!-- Status Section -->
+      <div class="status-section">
+        <div class="status-item">
+          <span class="status-label">API Status:</span>
+          <span id="apiStatus" class="status-value loading">⏳ Checking...</span>
+        </div>
+        <div class="status-item">
+          <span class="status-label">Total Todos:</span>
+          <span id="todoCount" class="status-value">0</span>
+        </div>
+      </div>
+
+      <!-- Todos List -->
+      <div class="todos-section">
+        <h2>Todos</h2>
+        <div id="todosList" class="todos-list">
+          <p class="loading">⏳ Loading todos...</p>
+        </div>
+      </div>
+
+      <!-- API Endpoints Info -->
+      <div class="info-section">
+        <h3>📡 API Endpoints</h3>
+        <ul>
+          <li><code>GET /api/todos</code> - Get all todos</li>
+          <li><code>POST /api/todos</code> - Create new todo</li>
+          <li><code>PUT /api/todos/:id</code> - Update todo</li>
+          <li><code>DELETE /api/todos/:id</code> - Delete todo</li>
+          <li><code>GET /health</code> - Health check</li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
