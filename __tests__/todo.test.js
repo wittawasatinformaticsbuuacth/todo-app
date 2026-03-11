@@ -1,14 +1,11 @@
 const request = require('supertest');
 const app = require('../index.js');
-const { expect } = require('@jest/globals');
+const { expect, describe, it } = require('@jest/globals');
 
 describe('Todo API - Endpoints', () => {
   describe('GET /api/todos', () => {
     it('should return all todos', async () => {
-      const res = await request(app)
-        .get('/api/todos')
-        .expect('Content-Type', /json/)
-        .expect(200);
+      const res = await request(app).get('/api/todos').expect('Content-Type', /json/).expect(200);
 
       expect(Array.isArray(res.body)).toBe(true);
       expect(res.body.length).toBeGreaterThan(0);
@@ -30,20 +27,14 @@ describe('Todo API - Endpoints', () => {
 
   describe('GET /api/todos/:id', () => {
     it('should return single todo by id', async () => {
-      const res = await request(app)
-        .get('/api/todos/1')
-        .expect('Content-Type', /json/)
-        .expect(200);
+      const res = await request(app).get('/api/todos/1').expect('Content-Type', /json/).expect(200);
 
       expect(res.body).toHaveProperty('id');
       expect(res.body.id).toBe(1);
     });
 
     it('should return 404 for non-existent todo', async () => {
-      await request(app)
-        .get('/api/todos/9999')
-        .expect('Content-Type', /json/)
-        .expect(404);
+      await request(app).get('/api/todos/9999').expect('Content-Type', /json/).expect(404);
     });
   });
 
@@ -118,19 +109,13 @@ describe('Todo API - Endpoints', () => {
     });
 
     it('should return 404 for non-existent todo', async () => {
-      await request(app)
-        .delete('/api/todos/9999')
-        .expect('Content-Type', /json/)
-        .expect(404);
+      await request(app).delete('/api/todos/9999').expect('Content-Type', /json/).expect(404);
     });
   });
 
   describe('GET /health', () => {
     it('should return health status', async () => {
-      const res = await request(app)
-        .get('/health')
-        .expect('Content-Type', /json/)
-        .expect(200);
+      const res = await request(app).get('/health').expect('Content-Type', /json/).expect(200);
 
       expect(res.body).toHaveProperty('status');
       expect(res.body.status).toBe('ok');
