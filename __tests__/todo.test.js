@@ -1,5 +1,6 @@
 const request = require('supertest');
 const app = require('../index.js');
+const { expect } = require('@jest/globals');
 
 describe('Todo API - Endpoints', () => {
   describe('GET /api/todos', () => {
