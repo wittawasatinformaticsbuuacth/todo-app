@@ -79,7 +79,6 @@ test.describe('Todo App E2E Tests', () => {
 
   test('should add todo with Enter key', async ({ page }) => {
     const todoInput = page.locator('#todoInput');
-    const addBtn = page.locator('#addBtn');
 
     // Clear input
     await todoInput.clear();

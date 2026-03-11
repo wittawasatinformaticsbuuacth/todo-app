@@ -101,6 +101,7 @@ async function addTodo() {
 
     if (!response.ok) throw new Error('Failed to add todo');
 
+    // eslint-disable-next-line no-unused-vars
     const newTodo = await response.json();
     todoInput.value = '';
     loadTodos();
@@ -111,7 +112,8 @@ async function addTodo() {
   }
 }
 
-// Toggle todo completion
+// Toggle todo completion (used in HTML onclick handlers)
+// eslint-disable-next-line no-unused-vars
 async function toggleTodo(id) {
   try {
     const response = await fetch(`${API_BASE}/todos/${id}`, {
@@ -131,7 +133,8 @@ async function toggleTodo(id) {
   }
 }
 
-// Delete todo
+// Delete todo (used in HTML onclick handlers)
+// eslint-disable-next-line no-unused-vars
 async function deleteTodo(id) {
   if (!confirm('Are you sure you want to delete this todo?')) {
     return;
@@ -196,7 +199,8 @@ function escapeHtml(text) {
 // Edit Modal Functions
 let currentEditId = null;
 
-// Open edit modal
+// Open edit modal (used in HTML onclick handlers)
+// eslint-disable-next-line no-unused-vars
 function openEditModal(id, title) {
   currentEditId = id;
   const editInput = document.getElementById('editInput');
