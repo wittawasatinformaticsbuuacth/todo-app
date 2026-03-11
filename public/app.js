@@ -68,7 +68,7 @@ function renderTodos(todos) {
       >
       <span class="todo-text">${escapeHtml(todo.title)}</span>
       <div class="todo-actions">
-        <button class="todo-btn edit-btn" onclick="openEditModal(${todo.id}, '${escapeHtml(todo.title).replace(/'/g, "\\'")}')">
+        <button class="todo-btn edit-btn" onclick="openEditModal(${todo.id}, '${escapeHtml(todo.title).replace(/'/g, '&#x27;')}')">
           ✏️ Edit
         </button>
         <button class="todo-btn delete-btn" onclick="deleteTodo(${todo.id})">
