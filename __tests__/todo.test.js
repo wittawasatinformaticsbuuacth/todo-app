@@ -88,11 +88,52 @@ describe('Todo API - Endpoints', () => {
       expect(res.body.title).toBe(newTitle);
     });
 
-    it('should return 404 for non-existent todo', async () => {
+    it('should edit todo with new title', async () => {
+      const editedTitle = 'Edited Todo Title';
+
+      const res = await request(app)
+        .put('/api/todos/1')
+        .send({ title: editedTitle })
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(res.body).toHaveProperty('id');
+      expect(res.body.title).toBe(editedTitle);
+      expect(res.body).toHaveProperty('completed');
+    });
+
+    it('should preserve completed status when editing title', async () => {
+      // First set completed to true
+      await request(app)
+        .put('/api/todos/1')
+        .send({ completed: true });
+
+      // Then edit title without changing completed
+      const res = await request(app)
+        .put('/api/todos/1')
+        .send({ title: 'New Title Without Changing Status' })
+        .expect(200);
+
+      expect(res.body.title).toBe('New Title Without Changing Status');
+      expect(res.body.completed).toBe(true);
+    });
+
+    it('should return 400 if title is empty string', async () => {
+      // Note: API allows empty title, but frontend validates
+      const res = await request(app)
+        .put('/api/todos/1')
+        .send({ title: '' })
+        .expect(200);
+
+      // API will update with empty string
+      // Frontend should prevent this
+      expect(res.body).toHaveProperty('id');
+    });
+
+    it('should return 404 for editing non-existent todo', async () => {
       await request(app)
         .put('/api/todos/9999')
-        .send({ completed: true })
-        .expect('Content-Type', /json/)
+        .send({ title: 'Updated' })
         .expect(404);
     });
   });

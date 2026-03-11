@@ -53,6 +53,28 @@
       </div>
     </div>
 
+    <!-- Edit Todo Modal -->
+    <div id="editModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>✏️ Edit Todo</h2>
+          <span class="close" onclick="closeEditModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+          <input
+            type="text"
+            id="editInput"
+            placeholder="Enter todo title"
+            class="modal-input"
+          />
+        </div>
+        <div class="modal-footer">
+          <button class="btn-cancel" onclick="closeEditModal()">Cancel</button>
+          <button class="btn-save" onclick="saveEditTodo()">Save</button>
+        </div>
+      </div>
+    </div>
+
     <script src="app.js"></script>
   </body>
 </html>

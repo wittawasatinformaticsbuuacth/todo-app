@@ -68,6 +68,9 @@ function renderTodos(todos) {
       >
       <span class="todo-text">${escapeHtml(todo.title)}</span>
       <div class="todo-actions">
+        <button class="todo-btn edit-btn" onclick="openEditModal(${todo.id}, '${escapeHtml(todo.title).replace(/'/g, "\\'")}')">
+          ✏️ Edit
+        </button>
         <button class="todo-btn delete-btn" onclick="deleteTodo(${todo.id})">
           🗑️ Delete
         </button>
@@ -189,3 +192,80 @@ function escapeHtml(text) {
   div.textContent = text;
   return div.innerHTML;
 }
+
+// Edit Modal Functions
+let currentEditId = null;
+
+// Open edit modal
+function openEditModal(id, title) {
+  currentEditId = id;
+  const editInput = document.getElementById('editInput');
+  editInput.value = title;
+  editInput.focus();
+  editInput.select(); // Select all text for quick editing
+
+  const modal = document.getElementById('editModal');
+  modal.classList.add('show');
+}
+
+// Close edit modal
+function closeEditModal() {
+  const modal = document.getElementById('editModal');
+  modal.classList.remove('show');
+  currentEditId = null;
+  document.getElementById('editInput').value = '';
+}
+
+// Save edited todo
+async function saveEditTodo() {
+  const editInput = document.getElementById('editInput');
+  const newTitle = editInput.value.trim();
+
+  if (!newTitle) {
+    showError('Todo title cannot be empty');
+    return;
+  }
+
+  if (!currentEditId) return;
+
+  try {
+    const response = await fetch(`${API_BASE}/todos/${currentEditId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ title: newTitle }),
+    });
+
+    if (!response.ok) throw new Error('Failed to update todo');
+
+    closeEditModal();
+    loadTodos();
+    clearError();
+  } catch (error) {
+    showError('Failed to update todo');
+    console.error('Error:', error);
+  }
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', (e) => {
+  const modal = document.getElementById('editModal');
+  if (e.target === modal) {
+    closeEditModal();
+  }
+});
+
+// Close modal on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeEditModal();
+  }
+  // Allow Enter key to save
+  if (e.key === 'Enter' && currentEditId !== null) {
+    const modal = document.getElementById('editModal');
+    if (modal.classList.contains('show')) {
+      saveEditTodo();
+    }
+  }
+});
