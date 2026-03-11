@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="container">
-      <h1>📝 Todo App</h1>
+      <h1>📝 Todo App - with edit item</h1>
       <p class="subtitle">Simple Full Stack Application with CI/CD</p>
 
       <!-- Add Todo Section -->
@@ -61,12 +61,7 @@
           <span class="close" onclick="closeEditModal()">&times;</span>
         </div>
         <div class="modal-body">
-          <input
-            type="text"
-            id="editInput"
-            placeholder="Enter todo title"
-            class="modal-input"
-          />
+          <input type="text" id="editInput" placeholder="Enter todo title" class="modal-input" />
         </div>
         <div class="modal-footer">
           <button class="btn-cancel" onclick="closeEditModal()">Cancel</button>
