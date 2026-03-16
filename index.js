@@ -69,7 +69,7 @@ app.get('/health', (req, res) => {
 const PORT = process.env.PORT || 3000;
 if (require.main === module) {
   app.listen(PORT, () => {
-    console.log(`🚀 Server running on http://localhost:${PORT}`);
+    console.log(`Server running on http://localhost:${PORT}`);
     console.log(`🌐 Frontend: http://localhost:${PORT}`);
     console.log(`📝 API: http://localhost:${PORT}/api/todos`);
     console.log(`❤️  Health: http://localhost:${PORT}/health`);

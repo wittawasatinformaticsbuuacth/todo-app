@@ -1,8 +1,8 @@
 # Todo App - Full CI/CD Pipeline Demo
 
-Simple Todo API สำหรับเรียนรู้เกี่ยวกับ Git, Build Automation, CI/CD Pipeline, และ Deployment
+แอปพลิเคชัน Todo API ที่เรียบง่ายเพื่อการเรียนรู้เกี่ยวกับ Git, Build Automation, CI/CD Pipeline, และ Deployment
 
-## 🚀 Quick Start
+## เริ่มต้นอย่างรวดเร็ว
 
 ### 1. Clone Repository
 
@@ -23,7 +23,7 @@ npm install
 npm run dev
 ```
 
-Server จะรันที่ `http://localhost:3000`
+เซิร์ฟเวอร์จะรันที่ `http://localhost:3000`
 
 ### 4. Test API
 
@@ -45,38 +45,38 @@ curl http://localhost:3000/health
 
 ---
 
-## 📋 Available Scripts
+## สคริปต์ที่มีให้ใช้งาน
 
-### Development
+### การพัฒนา
 
 ```bash
-npm run dev          # Run with nodemon (auto-reload)
-npm start            # Run production server
+npm run dev          # รันพร้อม nodemon (auto-reload)
+npm start            # รันเซิร์ฟเวอร์ผลิตภาพ
 ```
 
-### Quality Checks
+### การตรวจสอบคุณภาพ
 
 ```bash
-npm run lint         # Check code style
-npm run lint:fix     # Fix code style automatically
+npm run lint         # ตรวจสอบสไตล์โค้ด
+npm run lint:fix     # แก้ไขสไตล์โค้ดโดยอัตโนมัติ
 
-npm test             # Run API tests (Jest + Supertest)
-npm test -- --watch # Run tests in watch mode
+npm test             # รันการทดสอบ API (Jest + Supertest)
+npm test -- --watch # รันการทดสอบในโหมดแบบสอง
 
-npm run test:e2e     # Run E2E tests (Playwright)
-npm run test:e2e:ui  # Run with UI dashboard
-npx playwright show-report  # View test report
+npm run test:e2e     # รันการทดสอบ E2E (Playwright)
+npm run test:e2e:ui  # รันพร้อมแดชบอร์ด UI
+npx playwright show-report  # ดูรายงานการทดสอบ
 ```
 
-### Build
+### การสร้าง
 
 ```bash
-npm run build        # Build for production
+npm run build        # สร้างสำหรับผลิตภาพ
 ```
 
 ---
 
-## 📁 Project Structure
+## โครงสร้างของโปรเจกต์
 
 ```
 todo-app/
@@ -104,11 +104,11 @@ todo-app/
 
 ---
 
-## 🔧 API Endpoints
+## จุดปลายทาง API
 
 ### GET /api/todos
 
-Get all todos
+ดึงข้อมูลงานทั้งหมด
 
 ```bash
 curl http://localhost:3000/api/todos
@@ -125,7 +125,7 @@ curl http://localhost:3000/api/todos
 
 ### GET /api/todos/:id
 
-Get single todo
+ดึงข้อมูลงานเดียว
 
 ```bash
 curl http://localhost:3000/api/todos/1
@@ -133,7 +133,7 @@ curl http://localhost:3000/api/todos/1
 
 ### POST /api/todos
 
-Create new todo
+สร้างงานใหม่
 
 ```bash
 curl -X POST http://localhost:3000/api/todos \
@@ -143,7 +143,7 @@ curl -X POST http://localhost:3000/api/todos \
 
 ### PUT /api/todos/:id
 
-Update todo
+อัปเดตงาน
 
 ```bash
 curl -X PUT http://localhost:3000/api/todos/1 \
@@ -153,7 +153,7 @@ curl -X PUT http://localhost:3000/api/todos/1 \
 
 ### DELETE /api/todos/:id
 
-Delete todo
+ลบงาน
 
 ```bash
 curl -X DELETE http://localhost:3000/api/todos/1
@@ -161,7 +161,7 @@ curl -X DELETE http://localhost:3000/api/todos/1
 
 ### GET /health
 
-Health check
+ตรวจสอบสถานะ
 
 ```bash
 curl http://localhost:3000/health
@@ -169,23 +169,23 @@ curl http://localhost:3000/health
 
 ---
 
-## 📝 Development Workflow
+## กระบวนการพัฒนา
 
-### 1. Create Feature Branch
+### 1. สร้างสาขาฟีเจอร์
 
 ```bash
 git checkout -b feature/your-feature
 ```
 
-### 2. Make Changes & Test Locally
+### 2. ทำการเปลี่ยนแปลงและทดสอบในเครื่อง
 
 ```bash
-npm run dev      # Test server
-npm run lint     # Check code style
-npm test         # Run tests
+npm run dev      # ทดสอบเซิร์ฟเวอร์
+npm run lint     # ตรวจสอบสไตล์โค้ด
+npm test         # รันการทดสอบ
 ```
 
-### 3. Commit & Push
+### 3. ยืนยันการเปลี่ยนแปลงและอัปโหลด
 
 ```bash
 git add .
@@ -193,30 +193,30 @@ git commit -m "feat: describe your feature"
 git push origin feature/your-feature
 ```
 
-### 4. Create Pull Request
+### 4. สร้างคำขออลสูงสุด
 
-- ไปที่ GitHub Repository
-- กด "New Pull Request"
-- ทำให้ครบถ้วน PR description
+- ไปที่ที่เก็บ GitHub
+- คลิก "New Pull Request"
+- กรอกข้อมูล PR description ให้ครบถ้วน
 
-### 5. Wait for CI Pipeline
+### 5. รอการตรวจสอบไปป์ไลน์ CI
 
-- GitHub Actions จะทำการ lint, test, build อัตโนมัติ
-- รอให้ ✅ All checks passed
+- GitHub Actions จะทำการตรวจสอบโค้ด, ทดสอบ, สร้าง โดยอัตโนมัติ
+- รอให้การตรวจสอบทั้งหมดผ่าน
 
-### 6. Merge & Deploy
+### 6. รวมและปรับใช้
 
-- Approve PR
-- Merge ไป main branch
-- Auto-deploy ไป production
+- อนุมัติคำขอ
+- รวมไปยังสาขา main
+- ปรับใช้ไปยังผลิตภาพโดยอัตโนมัติ
 
 ---
 
-## ⚙️ Configuration
+## การตั้งค่า
 
-### .env File
+### ไฟล์ .env
 
-สร้าง `.env` จาก `.env.example`:
+สร้างไฟล์ `.env` จากไฟล์ `.env.example`:
 
 ```bash
 cp .env.example .env
@@ -229,29 +229,29 @@ PORT=3000
 NODE_ENV=development
 ```
 
-### ESLint Rules
+### กฎ ESLint
 
-ดู `.eslintrc.json` สำหรับ code style rules:
+ดูไฟล์ `.eslintrc.json` สำหรับกฎสไตล์โค้ด:
 
-- Indentation: 2 spaces
-- Quotes: Single quotes
-- Semicolon: Always required
+- การเยื้อง: 2 ช่องว่าง
+- เครื่องหมายคำพูด: เครื่องหมายอัญประลักษ์เดี่ยว
+- เซมิโคลอน: ต้องใช้เสมอ
 
-### Jest Configuration
+### การตั้งค่า Jest
 
-ดู `jest.config.js` สำหรับ test setup
+ดูไฟล์ `jest.config.js` สำหรับการตั้งค่าการทดสอบ
 
 ---
 
-## 🧪 Testing
+## การทดสอบ
 
-Run all tests:
+รันการทดสอบทั้งหมด:
 
 ```bash
 npm test
 ```
 
-Run with coverage:
+รันพร้อมการวัดความครอบคลุม:
 
 ```bash
 npm test -- --coverage
@@ -259,7 +259,166 @@ npm test -- --coverage
 
 ---
 
-## 🔍 Troubleshooting
+## � Deployment
+
+### Option 1: Deploy to Railway ⭐ (Recommended)
+
+Railway เป็นแพลตฟอร์มที่ง่ายสำหรับ deploy Node.js apps
+
+**ข้อดี:**
+
+- ฟรี (5GB/month)
+- Auto-deploy จาก GitHub
+- Database support (PostgreSQL, MySQL)
+- ง่ายสุดในการใช้งาน
+
+**ขั้นตอน:**
+
+1. **ตรวจสอบ Repository ใน GitHub**
+
+   ```bash
+   git push origin main
+   ```
+
+2. **ไปที่ railway.app**
+
+   - ไปที่ https://railway.app
+   - Sign up ด้วย GitHub account
+
+3. **Install Railway CLI**
+
+   ```bash
+   npm install -g @railway/cli
+   ```
+
+4. **Login & Deploy**
+
+   ```bash
+   railway login
+   cd path/to/todo-app
+   railway init
+   railway up
+   ```
+
+5. **ตรวจสอบ Logs**
+
+   ```bash
+   railway logs
+   ```
+
+6. **ดู Project URL**
+   - ไปที่ Railway Dashboard
+   - หา Service ของคุณ
+   - คลิก "View Logs" เพื่อหา URL
+
+---
+
+### ตัวเลือกที่ 2: ปรับใช้ไป Render.com
+
+**ข้อดี:**
+
+- ฟรี (500 ชั่วโมงต่อเดือน)
+- ปรับใช้อัตโนมัติจาก GitHub
+- PostgreSQL รวมอยู่
+- คอนโซล Web
+
+**ขั้นตอน:**
+
+1. **ไปที่ render.com**
+
+   - https://render.com
+   - สมัครสมาชิกตามบัญชี GitHub
+
+2. **สร้างบริการ Web**
+
+   - คลิก "New" → "Web Service"
+   - เลือกที่เก็บ GitHub (todo-app)
+   - ให้สิทธิ์การเข้าถึง
+
+3. **ตั้งค่าบริการ**
+
+   ```
+   Name: todo-app
+   Environment: Node
+   Build Command: npm install
+   Start Command: npm start
+   ```
+
+4. **ตั้งค่าตัวแปรสภาพแวดล้อม** (หากมี)
+
+   - คลิก "Environment"
+   - เพิ่ม `PORT=3000`
+   - เพิ่ม `NODE_ENV=production`
+
+5. **ปรับใช้**
+
+   - คลิก "Create Web Service"
+   - รอสำหรับการสร้างและปรับใช้
+   - จะได้รับ URL: `https://todo-app.onrender.com`
+
+6. **ปรับใช้อัตโนมัติเมื่อมีการพุช**
+   - Render จะปรับใช้โดยอัตโนมัติทุกครั้งที่พุชไปยัง main
+
+---
+
+### ตัวเลือกที่ 3: ปรับใช้ไป Vercel
+
+Vercel ดีถ้าคุณเปลี่ยนไป Next.js ในอนาคต
+
+**ข้อดี:**
+
+- ฟรี
+- ฟังก์ชัน Serverless
+- การปรับใช้อย่างรวดเร็ว
+- เครือข่ายขอบ
+
+**ขั้นตอน:**
+
+1. **ไปที่ vercel.com**
+
+   - https://vercel.com
+   - สมัครสมาชิกตามบัญชี GitHub
+
+2. **นำเข้าโปรเจกต์**
+
+   - คลิก "New Project"
+   - นำเข้าที่เก็บ GitHub
+   - เลือก todo-app
+
+3. **ตั้งค่าการตั้งค่าการสร้าง**
+
+   ```
+   Framework: Other
+   Build Command: npm run build
+   Start Command: npm start
+   ```
+
+4. **ตั้งค่าสภาพแวดล้อม**
+
+   - คลิก "Environment Variables"
+   - เพิ่มตัวแปรที่ต้องใช้
+
+5. **ปรับใช้**
+   - คลิก "Deploy"
+   - รอให้การสร้างเสร็จสิ้น
+   - จะได้รับ URL: `https://todo-app.vercel.app`
+
+---
+
+### การเปรียบเทียบแพลตฟอร์ม
+
+| ฟีเจอร์                 | Railway       | Render                | Vercel                  |
+| ----------------------- | ------------- | --------------------- | ----------------------- |
+| **ราคา**                | ฟรี 5GB/เดือน | ฟรี 500 ชั่วโมง/เดือน | ฟรี                     |
+| **ความยากในการตั้งค่า** | ง่ายสุด       | ปานกลาง               | ปานกลาง                 |
+| **ฐานข้อมูล**           | มีในตัว       | มีในตัว               | แยกต่างหาก              |
+| **ปรับใช้อัตโนมัติ**    | ได้           | ได้                   | ได้                     |
+| **รองรับ Node.js**      | ดีมาก         | ดีมาก                 | จำกัด                   |
+| **แนะนำ**               | ดีที่สุด      | ดี                    | สำหรับ Next.js เท่านั้น |
+
+---
+
+## �🔍 Troubleshooting
 
 ### Port already in use
 
@@ -285,22 +444,3 @@ npm run lint:fix
 ```bash
 npm test -- --verbose
 ```
-
----
-
-## 📚 Learn More
-
-- [Git Workflow](../wk10-git-workflow.md)
-- [Build Automation](../wk10-build-automation-pipeline.md)
-- [Deployment Strategy](../wk10-deploument-strategy.md)
-- [Full Demo Guide](../wk10-demo.md)
-
----
-
-## 📄 License
-
-ISC
-
----
-
-**Created for Learning Git, CI/CD, and DevOps Concepts**
