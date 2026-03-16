@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     strategy:
       matrix:
@@ -35,7 +35,7 @@ jobs:
       - name: Run linter
         run: npm run lint
 
-      # 5. Test
+      # 5. Unit Tests
       - name: Run tests
         run: npm test
 
@@ -43,6 +43,31 @@ jobs:
       - name: Build
         run: npm run build
 
-      # 7. Success message
+      # 7. Start server in background
+      - name: Start server
+        run: nohup npm start > /tmp/server.log 2>&1 &
+        timeout-minutes: 1
+
+      # 8. Wait for server to be ready
+      - name: Wait for server
+        run: |
+          for i in {1..30}; do
+            if curl -f http://localhost:3000/health 2>/dev/null; then
+              echo "Server is ready"
+              exit 0
+            fi
+            echo "Waiting for server..."
+            sleep 1
+          done
+          echo "Server did not start"
+          cat /tmp/server.log
+          exit 1
+
+      # 9. E2E Tests
+      - name: Run E2E tests
+        run: npm run test:e2e
+
+      # 10. Success message
       - name: ✅ All checks passed!
+        if: success()
         run: echo "Pipeline completed successfully"
