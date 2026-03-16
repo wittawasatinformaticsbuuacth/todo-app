@@ -71,10 +71,10 @@ function renderTodos(todos) {
       <span class="todo-text">${escapeHtml(todo.title)}</span>
       <div class="todo-actions">
         <button class="todo-btn edit-btn" onclick="editTodo(${todo.id})">
-          ✏️ Edit
+          ✏️ 
         </button>
         <button class="todo-btn delete-btn" onclick="deleteTodo(${todo.id})">
-          🗑️ Delete
+          🗑️
         </button>
       </div>
     </div>
