@@ -1,7 +1,5 @@
 const request = require('supertest');
 const app = require('../index.js');
-const { expect } = require('@playwright/test');
-const e = require('express');
 
 describe('Todo API - Endpoints', () => {
   describe('GET /api/todos', () => {
